@@ -1,0 +1,97 @@
+@startuml
+class pl.slvd.university.people.Applicant {
+- short id
+
+- String firstLastName
+- String dateOfBirth
+- String faculty
+- String speciality
+
+- int[] values
++ int sum
++ short getId()
++ String getFirstLastName()
++ String getFaculty()
++ String getSpeciality()
++ int[] getValues()
++ int getSum()
+
++ int[] setValues()
+
++ String toString()
++ boolean equals(Object)
++ int hashCode()
+}
+class pl.slvd.university.building.Cafeteria {
+}
+class pl.slvd.university.administration.AdmissionsOffice {
++ {static} List<Applicant> applicants
++ {static} String firstLastName
+--
++ {static} void registration(String,String)
+List <String> name
+String birthday
+}
+class pl.slvd.university.building.Library {
+}
+class pl.slvd.university.building.Hostel {
+}
+class pl.slvd.university.administration.Deanery {
++ int compare(Applicant,Applicant)
++ {static} void sortByGrades(List<Applicant>,String,int,int,String)
+}
+class pl.slvd.university.people.Student {
+}
+class pl.slvd.university.departments.Speciality {
+- String name
+- String exam
+- int numOfBudgetPlaces
+- int numOfPaidPlaces
++ String toString()
++ boolean equals(Object)
++ int hashCode()
+
++ String getName()
++ String getExams()
++ int getNumOfBudgetPlaces()
++ int getNumOfPaidPlaces()
+}
+abstract class pl.slvd.university.departments.Faculty {
+- String facultyName
++ String getFacultyName()
++ String toString()
++ boolean equals(Object)
++ int hashCode()
+}
+class pl.slvd.university.administration.ExamBoard {
++ {static} byte MIN_PASS_SCORE
++ {static} void passExam()
+ExamSheet.getGrades();
++ {static} int[] rate()
+}
+class pl.slvd.university.documents.Pass {
+}
+class pl.slvd.university.administration.Accounting {
+}
+class pl.slvd.university.documents.ExamSheet {
++ {static} int[] grades
++ {static} void getGrades()
+}
+class pl.slvd.university.people.Professor {
+}
+class pl.slvd.university.Main {
++ {static} Logger LOG
++ {static} void main(String[])
+String yourFaculty
+String yourSpeciality
+AdmissionsOffice.registration(yourFaculty, yourSpeciality)
+ExamBoard.passExam()
+Deanery.sortByGrades(...)
+}
+class pl.slvd.university.building.Campus {
+}
+
+
+pl.slvd.university.administration.Comparator <|.. pl.slvd.university.administration.Deanery
+pl.slvd.university.departments.Faculty <|-- pl.slvd.university.departments.Speciality
+@enduml

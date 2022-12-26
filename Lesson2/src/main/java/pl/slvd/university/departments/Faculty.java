@@ -1,4 +1,6 @@
-package pl.slvd.university;
+package pl.slvd.university.departments;
+
+import pl.slvd.university.administration.Deanery;
 
 import java.util.Objects;
 

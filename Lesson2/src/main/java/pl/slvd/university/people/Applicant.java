@@ -1,19 +1,16 @@
-package pl.slvd.university;
+package pl.slvd.university.people;
 
 import java.util.*;
 
 import static java.util.Arrays.stream;
 
-import static pl.slvd.university.ExamSheet.grades;
+import static pl.slvd.university.documents.ExamSheet.grades;
 
 public class Applicant {
     private final short id;
-    private final String firstLastName;
-    private final String dateOfBirth;
-    private final String faculty;
-    private final String speciality;
+    private final String firstLastName, dateOfBirth, faculty, speciality;
     private int[] values = new int[3]; //the number of grades will receive in exams
-    int sum = stream(getValues()).sum();
+    public int sum;
 
     public Applicant(short id, String firstLastName, String dateOfBirth, String faculty, String speciality) {
         this.id = id;
@@ -64,10 +61,8 @@ public class Applicant {
 
     @Override
     public String toString() {
-        return String.format("%20s |%20s |%20s |%20s |%20s |%20s ", firstLastName, dateOfBirth, faculty.toUpperCase(Locale.ROOT), speciality.toUpperCase(Locale.ROOT), Arrays.toString(values), getSum()) +
-                '|';
+        return String.format("%20s |%20s |%20s |%20s |%20s |%20s ", firstLastName, dateOfBirth, faculty.toUpperCase(Locale.ROOT), speciality.toUpperCase(Locale.ROOT), Arrays.toString(values).replace("[", "").replace("]", ""), getSum());
     }
-
 
     @Override
     public boolean equals(Object o) {

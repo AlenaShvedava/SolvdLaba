@@ -1,12 +1,10 @@
-package pl.slvd.university;
+package pl.slvd.university.departments;
 
 import java.util.Objects;
 
 public class Speciality extends Faculty {
-    private final String name;
-    private final int numOfBudgetPlaces;
-    private final int numOfPaidPlaces;
-    private final String exams;
+    private final String name, exams;
+    private final int numOfBudgetPlaces, numOfPaidPlaces;
 
     public Speciality(String facultyName, String name, int numOfBudgetPlaces, int numOfPaidPlaces, String exams) {
         super(facultyName);
